@@ -1,0 +1,5 @@
+FROM oraclelinux:8-slim
+
+COPY /native-image/spring-graalvm-service-native /home/service/
+
+CMD [ "sh", "-c", "/home/service/spring-graalvm-service-native" ]

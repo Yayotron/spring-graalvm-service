@@ -1,0 +1,6 @@
+#Uses openjdk 11 image
+FROM adoptopenjdk/openjdk11:alpine
+
+COPY ../target/spring-graalvm-service.jar /home/service/spring-graalvm-service.jar
+
+CMD [ "java", "-jar","/home/service/spring-graalvm-service.jar" ]

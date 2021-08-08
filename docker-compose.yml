@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  jar-service:
+    image: graalvm-service-jar
+    environment:
+      - spring.datasource.url=jdbc:postgresql://database:5432/demo
+      - spring.datasource.username=postgres
+      - spring.datasource.password=postgres
+      - spring.flyway.enabled=false #Disabled just to compare startup with native-service
+  native-service:
+    image: graalvm-service
+    environment:
+      - spring.datasource.url=jdbc:postgresql://database:5432/demo
+      - spring.datasource.username=postgres
+      - spring.datasource.password=postgres
+      - spring.datasource.driver-class-name=org.postgresql.Driver
+      - spring.flyway.enabled=false #Doesn't support GraalVM :( https://github.com/flyway/flyway/issues/2927
+  database:
+    image: postgres:10.7
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=demo
+    volumes:
+      - psql_data:/var/lib/postgresql/data/ # persist data even if container shuts down
+
+volumes:
+  psql_data:
+    external:
+      name: postgresql_postgresql-data
