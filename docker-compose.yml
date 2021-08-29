@@ -1,7 +1,9 @@
 version: '3.8'
 services:
-  jar-service:
-    image: graalvm-service-jar
+  openjdk-service:
+    image: openjdk-service
+    ports:
+      - "8080:8080"
     depends_on:
       - database
     environment:
@@ -9,8 +11,22 @@ services:
       - spring.datasource.username=postgres
       - spring.datasource.password=postgres
       - spring.flyway.enabled=false #Disabled just to compare startup with native-service
-  native-service:
-    image: graalvm-service
+  graalvm-native-service:
+    image: graalvm-native-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      - spring.datasource.url=jdbc:postgresql://database:5432/demo
+      - spring.datasource.username=postgres
+      - spring.datasource.password=postgres
+      - spring.datasource.driver-class-name=org.postgresql.Driver
+      - spring.flyway.enabled=false #Doesn't support GraalVM :( https://github.com/flyway/flyway/issues/2927
+  graalvm-jit-service:
+    image: graalvm-jit-service
+    ports:
+      - "8080:8080"
     depends_on:
       - database
     environment:

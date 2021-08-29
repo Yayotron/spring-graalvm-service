@@ -1,4 +1,4 @@
 #!/bin/bash
 
 mvn clean package -f pom.xml
-docker build . -t graalvm-service-jar -f ./jar/Dockerfile_jar
+docker build . -t openjdk-service -f ./jar/Dockerfile_jar

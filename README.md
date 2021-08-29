@@ -22,7 +22,11 @@ beforehand in order to create the database structure.
 
 # How to run tests
 
-Ain't nobody got time to write tests for a pet project, move on.
+Ain't nobody got time to write unit tests for a pet project.
+You can use postman collection `spring-graalvm-service.postman_collection.json` to test the API manually.
+You could also run performance test using jmeter. Note: these tests fully clean-up DB before starting.
+
+`jmeter -n -t performance_test.jmx -l {result-file-name}.jtl`
 
 # How to build
 

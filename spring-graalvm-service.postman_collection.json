@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "a9a7623d-6ca1-4432-b7a6-3c5ba3253214",
+		"name": "spring-graalvm-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register demo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"GraalVM Demo!\",\r\n    \"startTime\": \"2021-08-12T14:00:00.592217647Z\",\r\n    \"endTime\": \"2021-08-12T15:00:00.592217647Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/demos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Demos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/demos?page=0&size=15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demos"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Participant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Victor Mars\",\r\n    \"email\": \"victor_mars@epam.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/demos/participants?demoId=1f9b660c-5409-4f62-a759-77af124c9ad5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demos",
+						"participants"
+					],
+					"query": [
+						{
+							"key": "demoId",
+							"value": "1f9b660c-5409-4f62-a759-77af124c9ad5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List participants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/demos/participants?demoId=1f9b660c-5409-4f62-a759-77af124c9ad5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"demos",
+						"participants"
+					],
+					"query": [
+						{
+							"key": "demoId",
+							"value": "1f9b660c-5409-4f62-a759-77af124c9ad5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "demo_host",
+			"value": "http://localhost:8080"
+		}
+	]
+}

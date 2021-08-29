@@ -1,0 +1,6 @@
+#Uses graalvm jdk11 image
+FROM ghcr.io/graalvm/graalvm-ce:java11-21.2.0
+
+COPY ../target/spring-graalvm-service.jar /home/service/spring-graalvm-service.jar
+
+CMD [ "opt/graalvm-ce-java11-21.2.0/bin/java", "-XX:+UnlockExperimentalVMOptions", "-XX:+EnableJVMCI", "-XX:+UseJVMCICompiler", "-jar", "/home/service/spring-graalvm-service.jar" ]

@@ -29,9 +29,9 @@ class DemoManagerService(private val demoRepository: DemoRepository) {
         demoRepository.addAttendee(participant, demoId)
     }
 
-    fun listDemos(page: Int, size: Int): Page<Demo> {
+    fun listDemos(page: Int, size: Int): List<Demo> {
         logger.debug("Retrieving {} demos from page {}", size, page)
-        return demoRepository.listDemos(page, size)
+        return demoRepository.listDemos(page, size).toList()
     }
 
     fun listParticipants(demoId: UUID): List<Participant> {
