@@ -2,6 +2,8 @@ version: '3.8'
 services:
   jar-service:
     image: graalvm-service-jar
+    depends_on:
+      - database
     environment:
       - spring.datasource.url=jdbc:postgresql://database:5432/demo
       - spring.datasource.username=postgres
@@ -9,6 +11,8 @@ services:
       - spring.flyway.enabled=false #Disabled just to compare startup with native-service
   native-service:
     image: graalvm-service
+    depends_on:
+      - database
     environment:
       - spring.datasource.url=jdbc:postgresql://database:5432/demo
       - spring.datasource.username=postgres
