@@ -153,7 +153,7 @@ TRUNCATE TABLE demo_management.participant CASCADE;</stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -190,7 +190,7 @@ TRUNCATE TABLE demo_management.participant CASCADE;</stringProp>
         <stringProp name="filename">C:\Investigation\graalvm\spring-graalvm-service\merged-results.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
+      <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -224,13 +224,13 @@ TRUNCATE TABLE demo_management.participant CASCADE;</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">C:\Investigation\graalvm\spring-graalvm-service\merged-results.jtl</stringProp>
+        <stringProp name="filename">C:\Investigation\graalvm\spring-graalvm-service\merged-results-initial.jtl</stringProp>
         <stringProp name="RespTimeGraph.graphtitle">Response Time Graph</stringProp>
         <boolProp name="RespTimeGraph.seriesselection">true</boolProp>
         <stringProp name="RespTimeGraph.seriesselectionmatchlabel">.*demo*.</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -267,7 +267,7 @@ TRUNCATE TABLE demo_management.participant CASCADE;</stringProp>
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.MergeResultsGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Merge Results" enabled="true">
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.MergeResultsGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Merge Results" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -301,7 +301,7 @@ TRUNCATE TABLE demo_management.participant CASCADE;</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">C:\Investigation\graalvm\spring-graalvm-service\merged-results.jtl</stringProp>
+        <stringProp name="filename">C:\Investigation\graalvm\spring-graalvm-service\merged-results-initial.jtl</stringProp>
         <longProp name="interval_grouping">500</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -311,8 +311,8 @@ TRUNCATE TABLE demo_management.participant CASCADE;</stringProp>
         <boolProp name="include_checkbox_state">false</boolProp>
         <boolProp name="exclude_checkbox_state">false</boolProp>
         <collectionProp name="MergeResultsControlGui.data">
-          <collectionProp name="-592601920">
-            <stringProp name="-1887321321">C:\Investigation\graalvm\spring-graalvm-service\graalvm-jit-result.jtl</stringProp>
+          <collectionProp name="758982140">
+            <stringProp name="1310562062">C:\Investigation\graalvm\spring-graalvm-service\graalvm-jit-result-initial.jtl</stringProp>
             <stringProp name="1266684179">GraalVM JIT </stringProp>
             <stringProp name="0"></stringProp>
             <stringProp name="0"></stringProp>
@@ -321,8 +321,8 @@ TRUNCATE TABLE demo_management.participant CASCADE;</stringProp>
             <stringProp name="0"></stringProp>
             <stringProp name="1237">false</stringProp>
           </collectionProp>
-          <collectionProp name="-392077392">
-            <stringProp name="-1817060999">C:\Investigation\graalvm\spring-graalvm-service\graalvm-native-result.jtl</stringProp>
+          <collectionProp name="12700360">
+            <stringProp name="-972412048">C:\Investigation\graalvm\spring-graalvm-service\graalvm-native-result-initial.jtl</stringProp>
             <stringProp name="179702891">GraalVM Nativ e</stringProp>
             <stringProp name="0"></stringProp>
             <stringProp name="0"></stringProp>
@@ -331,8 +331,8 @@ TRUNCATE TABLE demo_management.participant CASCADE;</stringProp>
             <stringProp name="0"></stringProp>
             <stringProp name="1237">false</stringProp>
           </collectionProp>
-          <collectionProp name="-1287924496">
-            <stringProp name="1434154768">C:\Investigation\graalvm\spring-graalvm-service\openjdk-result.jtl</stringProp>
+          <collectionProp name="1528411523">
+            <stringProp name="457458183">C:\Investigation\graalvm\spring-graalvm-service\openjdk-result-initial.jtl</stringProp>
             <stringProp name="-440336039">OpenJDK </stringProp>
             <stringProp name="0"></stringProp>
             <stringProp name="0"></stringProp>
@@ -342,7 +342,7 @@ TRUNCATE TABLE demo_management.participant CASCADE;</stringProp>
             <stringProp name="1237">false</stringProp>
           </collectionProp>
         </collectionProp>
-        <stringProp name="prefix_label">OpenJDK</stringProp>
+        <stringProp name="prefix_label">OpenJDK </stringProp>
       </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
       <hashTree/>
     </hashTree>
