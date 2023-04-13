@@ -4,12 +4,7 @@ import me.victor.graalvm.domain.Demo
 import me.victor.graalvm.infrastructure.database.DatabaseConstants
 import java.time.LocalDateTime
 import java.util.UUID
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.JoinColumn
-import javax.persistence.OneToMany
-import javax.persistence.Table
+import jakarta.persistence.*
 
 @Entity
 @Table(schema = DatabaseConstants.SCHEMA, name = DatabaseConstants.DEMO_TABLE)

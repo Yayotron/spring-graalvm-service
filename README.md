@@ -3,13 +3,13 @@
 Pet project to test Spring GraalVM - this project has features that we'll commonly find in a production repository: rest
 endpoints, database, logging, flyway.
 
-This repository contains the required configuration to build and run the same project in a standard jdk11 container and
+This repository contains the required configuration to build and run the same project in a standard jdk17 container and
 using a GraalVM native image built to run inside oraclelinux:8-slim.
 
 # Pre-requisites
 
-* Maven (tested with version 3.6.3)
-* JDK 11 (tested with AdoptOpenJDK distribution)
+* Maven (tested with version 3.9.1)
+* JDK 17 (tested with Eclipse Temurin distribution)
 * Docker
 * Create a database called demo in PostgreSQL (can be started running `docker-compose up database`).
 
@@ -43,9 +43,9 @@ Can be run using `docker-compose up graalvm-native-service`
 
 `./jar/build-jar-image.sh`
 
-This generates a new docker image using `openjdk11:alpine` as base which is running a `.jar` with this service.
+This generates a new docker image using `eclipse-temurin:17` as base which is running a `.jar` with this service.
 
-Can be run using `docker-compose up openjdk-service`
+Can be run using `docker-compose up temurin-service`
 
 ## GraalVM JIT Service
 
@@ -69,11 +69,11 @@ Can be run using `docker-compose up graalvm-jit-service`
 ![initial-test-result](response-time-graph-initial.png)
 * ~267 r/s for GraalVM JIT
 * ~263 r/s for GraalVM native
-* ~245 r/s for OpenJDK
+* ~245 r/s for Temurin
 
-On this test, either GraalVM performed ~10% faster than OpenJDK.
+On this test, either GraalVM performed ~10% faster than Temurin.
 
-OpenJDK and GraalVM as they're using JIT they start much slower, however once the JIT optimizations
+Temurin and GraalVM as they're using JIT they start much slower, however once the JIT optimizations
 kick-in we can see their numbers improving. 
 
 
@@ -88,13 +88,13 @@ kick-in we can see their numbers improving.
 ### Result
 ![warmed-test-result](response-time-graph-warmed.png)
 * ~284 r/s for GraalVM JIT
-* ~228 r/s for OpenJDK
+* ~228 r/s for Temurin
 * ~220 r/s for GraalVM native
 
 
-As both OpenJDK and GraalVM JIT are already warmed up they maintain their throughput don't
+As both Temurin and GraalVM JIT are already warmed up they maintain their throughput don't
 fluctuate as much as for the previous case. Also we can see that GraalVM JIT performs exceptionally
 better.
 
-Probably the most surprising fact on these tests is the small difference between OpenJDK and GraalVM 
+Probably the most surprising fact on these tests is the small difference between Temurin and GraalVM 
 native.

@@ -1,7 +1,9 @@
 version: '3.8'
 services:
-  openjdk-service:
-    image: openjdk-service
+  temurin-service:
+    build:
+      dockerfile: jar/Dockerfile_jar
+      context: .
     ports:
       - "8080:8080"
     depends_on:
@@ -12,7 +14,9 @@ services:
       - spring.datasource.password=postgres
       - spring.flyway.enabled=false #Disabled just to compare startup with native-service
   graalvm-native-service:
-    image: graalvm-native-service
+    build:
+      dockerfile: native-image/Dockerfile_native
+      context: .
     ports:
       - "8080:8080"
     depends_on:
@@ -22,9 +26,10 @@ services:
       - spring.datasource.username=postgres
       - spring.datasource.password=postgres
       - spring.datasource.driver-class-name=org.postgresql.Driver
-      - spring.flyway.enabled=false #Doesn't support GraalVM :( https://github.com/flyway/flyway/issues/2927
   graalvm-jit-service:
-    image: graalvm-jit-service
+    build:
+      dockerfile: graalvm-jit/Dockerfile_jit
+      context: .
     ports:
       - "8080:8080"
     depends_on:
@@ -34,9 +39,8 @@ services:
       - spring.datasource.username=postgres
       - spring.datasource.password=postgres
       - spring.datasource.driver-class-name=org.postgresql.Driver
-      - spring.flyway.enabled=false #Doesn't support GraalVM :( https://github.com/flyway/flyway/issues/2927
   database:
-    image: postgres:10.7
+    image: postgres:15
     ports:
       - "5432:5432"
     environment:
@@ -48,5 +52,4 @@ services:
 
 volumes:
   psql_data:
-    external:
-      name: postgresql_postgresql-data
+    name: postgresql_postgresql-data

@@ -1,5 +1,5 @@
-#Uses openjdk 11 image
-FROM adoptopenjdk/openjdk11:alpine
+#Uses temurin 17 image
+FROM eclipse-temurin:17
 
 COPY ../target/spring-graalvm-service.jar /home/service/spring-graalvm-service.jar
 

@@ -1,14 +1,14 @@
-FROM ghcr.io/graalvm/graalvm-ce:java11-21.2.0
+FROM ghcr.io/graalvm/graalvm-ce:ol9-java17-22.3.1
 
 ENV M2_HOME=/opt/maven
 ENV PATH="${M2_HOME}/bin:${PATH}"
 
 RUN microdnf install -y unzip zip
-RUN curl "https://apache.mirrors.nublue.co.uk/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip" -s -o "mvn.zip" \
+RUN curl "https://downloads.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip" -s -o "mvn.zip" \
     && unzip mvn.zip \
-    && mv apache-maven-3.6.3/ /opt/maven/ \
+    && mv apache-maven-3.9.1/ /opt/maven/ \
     && rm mvn.zip
-RUN gu install native-image;
+RUN /bin/gu install native-image
 
 COPY .. /home/user/spring-graalvm-service
 WORKDIR /home/user/spring-graalvm-service
